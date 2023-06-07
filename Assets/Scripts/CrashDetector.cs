@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class CrashDetector : MonoBehaviour
 {
     [SerializeField] float delay = 0.5f;
+    [SerializeField] private ParticleSystem bumpEffect;
     private void OnTriggerEnter2D(Collider2D other)
     {
         
@@ -14,6 +15,7 @@ public class CrashDetector : MonoBehaviour
         {
             //Debug.Log("WTF!");
             //SceneManager.LoadScene(0);
+            bumpEffect.Play();
             Invoke("ReloadScene",delay);
         }
     }
